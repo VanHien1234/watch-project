@@ -5,13 +5,17 @@ import 'popper.js/dist/umd/popper';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
+import {Provider} from 'react-redux'
+import {store} from './redux/configStore'
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
