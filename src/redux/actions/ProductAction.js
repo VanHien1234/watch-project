@@ -1,36 +1,39 @@
 import { QLProductApi } from "API/ProductApi";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
-import { FETCH_MALE_PRODUCT,FETCH_DETAIL_PRODUCT} from 'redux/types/ProductType'
+import { RENDER_HOME, FETCH_DETAIL_PRODUCT } from 'redux/types/ProductType'
 
 
 
-export const RenderHomePageAction =()=>{
+export const RenderHomePageAction = () => {
 
-    return async (dispatch) =>{
+    return async(dispatch) => {
         try {
-            const result = await QLProductApi.fecthAllMaleProduct()
-            console.log('all male product',result.data.data )
+            const result = await QLProductApi.fetchAllMaleProduct()
+            const female = await QLProductApi.fetchAllFemaleProduct()
+            console.log('female', female.data.data);
+            console.log('all male product', result.data.data)
             dispatch({
-                type : FETCH_MALE_PRODUCT,
-                arrProduct : result.data.data
+                type: RENDER_HOME,
+                arrMale: result.data.data,
+                arrFemale: female.data.data,
+
             })
 
-        }catch(errors){
-            console.log('error',errors)
+        } catch (errors) {
+            console.log('error', errors)
         }
     }
 }
-export const GetProductDetailAction =(id)=>{
-    return async (dispatch)=>{
-        try{
+export const GetProductDetailAction = (id) => {
+    return async(dispatch) => {
+        try {
             const result = await QLProductApi.fetchDetailProductApi(id)
-            console.log('detail product',result)
+            console.log('detail product', result)
             dispatch({
                 type: FETCH_DETAIL_PRODUCT,
-                arrProductDetail:result.data.data
+                arrProductDetail: result.data.data
             })
-        }
-        catch(error){
+        } catch (error) {
             console.log('error detail product', error)
 
         }
@@ -68,7 +71,3 @@ export const getMovieDetailAction = (maPhim) =>{
         }
     }
 } */
-
-
-
-
