@@ -1,0 +1,15 @@
+footer {
+    width: 100%;
+    .container-fluid {
+        height: 72px;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        span {
+            color: #fff;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
