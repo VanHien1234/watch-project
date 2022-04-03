@@ -6,7 +6,7 @@ import { FETCH_MALE_PRODUCT,FETCH_DETAIL_PRODUCT } from "redux/types/ProductType
  
 const stateDefault ={
     arrProduct : [],
-    arr_Male_Product : [],
+    arr_Male_Product : [],//data api
     arrProductDetail:[],
 
 

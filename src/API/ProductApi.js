@@ -1,10 +1,10 @@
 import { baseService } from "./ApiConfig";
 
 export class ProductApi extends baseService {
-    fecthAllFemaleProduct =()=>{
+    fetchAllFemaleProduct =()=>{
         return this.get(`product?type=nu&brand=6`)
     }
-    fecthAllMaleProduct =()=>{
+    fetchAllMaleProduct =()=>{
         return this.get(`product?type=nam&brand=6`)
     }
     fetchDetailProductApi =(id)=>{

@@ -11,7 +11,7 @@ export const HomeTemplate =(props) =>{
 
         return <Fragment>
 
-
+            
 
             <Component {...propsRoute}/>
 

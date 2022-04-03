@@ -8,7 +8,7 @@ export const RenderHomePageAction =()=>{
 
     return async (dispatch) =>{
         try {
-            const result = await QLProductApi.fecthAllMaleProduct()
+            const result = await QLProductApi.fetchAllMaleProduct()
             console.log('all male product',result.data.data )
             dispatch({
                 type : FETCH_MALE_PRODUCT,
