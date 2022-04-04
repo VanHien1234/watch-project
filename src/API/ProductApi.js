@@ -1,14 +1,17 @@
 import { baseService } from "./ApiConfig";
 
 export class ProductApi extends baseService {
-    fetchAllFemaleProduct =()=>{
+    fetchAllFemaleProduct = () => {
         return this.get(`product?type=nu&brand=6`)
     }
-    fetchAllMaleProduct =()=>{
+    fetchAllMaleProduct = () => {
         return this.get(`product?type=nam&brand=6`)
     }
-    fetchDetailProductApi =(id)=>{
+    fetchDetailProductApi = (id) => {
         return this.get(`product/${id}`)
+    }
+    fetchNewsAPI = () => {
+        return this.get(`posts`)
     }
 }
 

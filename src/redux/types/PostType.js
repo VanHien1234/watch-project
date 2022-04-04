@@ -1,0 +1,1 @@
+export const NEWS_POST = 'NEWS_POST'

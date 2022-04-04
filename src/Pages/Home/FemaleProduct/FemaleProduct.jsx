@@ -1,16 +1,15 @@
 import React from 'react';
-import { IMG_URL_PRODUCT } from 'API/ApiConfig';
-import '../Card_Product.scss'
 import { Link } from 'react-router-dom';
+import { IMG_URL_PRODUCT } from 'API/ApiConfig';
 
-const MaleProduct = (props) => {
-    const {arrProduct} = props
-    console.log('arrProduct',arrProduct)
-    function currencyFormat(num) {
+
+export default function FemaleProduct(props) {
+  const { arrProduct } = props;
+  console.log('cpn female', arrProduct);
+  function currencyFormat(num) {
         return  num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'
     }
-
-    const renderProduct = () => {
+  const renderProduct = () => {
         return arrProduct.map((e, index) => {
             return <div className='col-3' key={index}>
                 <Link to={`/product/${e._id}`}>
@@ -29,9 +28,8 @@ const MaleProduct = (props) => {
             </div>
         })
     }
-
-    return (
-        <div className='container mt-5'>
+  return (
+    <div className='container mt-5'>
             <div className="row">
                 {renderProduct()}
             </div>
@@ -45,7 +43,6 @@ const MaleProduct = (props) => {
             </div>
 
         </div>
-    );
+  )
 }
 
-export default MaleProduct;

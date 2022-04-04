@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom';
 import { Fragment } from 'react';
-
+import Header from './Layout/Header/Header';
+import Footer from './Layout/Footer/Footer';
 
 
 export const HomeTemplate =(props) =>{
@@ -11,10 +12,15 @@ export const HomeTemplate =(props) =>{
 
         return <Fragment>
 
+            <Header />
+            <div className="body--cpn" style={{marginTop:'150px'}}>
+                <Component {...propsRoute}/>
+
+            </div>
+
             
 
-            <Component {...propsRoute}/>
-
+            <Footer />
 
 
 
