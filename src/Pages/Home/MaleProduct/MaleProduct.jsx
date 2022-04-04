@@ -38,7 +38,7 @@ const MaleProduct = (props) => {
             
             <div className="Home__button text-center mt-5 pb-3">
                 <Link to={'/'}>
-                    <button className='btn btn--all'>View All</button>
+                    <button className='btn--page btn--all'>View All</button>
 
                 </Link>
                 

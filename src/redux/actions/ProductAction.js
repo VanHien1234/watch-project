@@ -9,9 +9,13 @@ export const RenderHomePageAction = () => {
     return async(dispatch) => {
         try {
             const result = await QLProductApi.fetchAllMaleProduct()
+
+            console.log('all male product',result.data.data )
+
             const female = await QLProductApi.fetchAllFemaleProduct()
             console.log('female', female.data.data);
             console.log('all male product', result.data.data)
+
             dispatch({
                 type: RENDER_HOME,
                 arrMale: result.data.data,

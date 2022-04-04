@@ -13,8 +13,12 @@ export const HomeTemplate =(props) =>{
         return <Fragment>
 
             <Header />
+            <div className="body--cpn" style={{marginTop:'150px'}}>
+                <Component {...propsRoute}/>
 
-            <Component {...propsRoute}/>
+            </div>
+
+            
 
             <Footer />
 
