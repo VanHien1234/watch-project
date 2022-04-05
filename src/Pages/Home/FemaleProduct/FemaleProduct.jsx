@@ -5,7 +5,7 @@ import { IMG_URL_PRODUCT } from 'API/ApiConfig';
 
 export default function FemaleProduct(props) {
   const { arrProduct } = props;
-  console.log('cpn female', arrProduct);
+ /*  console.log('cpn female', arrProduct); */
   function currencyFormat(num) {
         return  num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'
     }

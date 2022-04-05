@@ -1,6 +1,6 @@
 import { QLProductApi } from "API/ProductApi";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
-import { RENDER_HOME, FETCH_DETAIL_PRODUCT } from 'redux/types/ProductType'
+import { RENDER_HOME, FETCH_DETAIL_PRODUCT,RENDER_LOGO } from 'redux/types/ProductType'
 
 
 
@@ -8,70 +8,45 @@ export const RenderHomePageAction = () => {
 
     return async(dispatch) => {
         try {
+            dispatch(displayLoadingAction)
             const result = await QLProductApi.fetchAllMaleProduct()
-
-            console.log('all male product',result.data.data )
-
+            const logo = await QLProductApi.fetchBrandLogoApi()
             const female = await QLProductApi.fetchAllFemaleProduct()
-            console.log('female', female.data.data);
-            console.log('all male product', result.data.data)
 
             dispatch({
                 type: RENDER_HOME,
                 arrMale: result.data.data,
                 arrFemale: female.data.data,
+                arrBrandLogo: logo.data.data,
 
             })
+            await dispatch(hideLoadingAction);
 
         } catch (errors) {
             console.log('error', errors)
+            dispatch(hideLoadingAction);
         }
     }
 }
 export const GetProductDetailAction = (id) => {
     return async(dispatch) => {
         try {
+            dispatch(displayLoadingAction)
             const result = await QLProductApi.fetchDetailProductApi(id)
-            console.log('detail product', result)
+            const random = await QLProductApi.fetchRandomProductApi()
+            const logo = await QLProductApi.fetchBrandLogoApi()
+
             dispatch({
                 type: FETCH_DETAIL_PRODUCT,
-                arrProductDetail: result.data.data
+                arrProductDetail: result.data.data,
+                arrRandom:random.data.data,
+                arrBrandLogo: logo.data.data,
             })
+            await dispatch(hideLoadingAction);
         } catch (error) {
             console.log('error detail product', error)
+            dispatch(hideLoadingAction);
 
         }
     }
 }
-
-
-
-/* 
-export const getMovieDetailAction = (maPhim) =>{
-    return async (dispatch) =>{
-        try{
-            dispatch(displayLoadingAction)
-            const movieDetail = await QLMovieApi.movieDetailApi(maPhim)
-            const movieCredit = await QLMovieApi.movieCreditApi(maPhim)
-            const movieVideo = await QLMovieApi.movieVideoApi(maPhim)
-
-            console.log('getmoviedetail',movieDetail.data)
-            console.log('movieCredit',movieCredit.data)
-            console.log('movieVideo',movieVideo)
-
-            
-            dispatch({
-                type : GET_MOVIE_DETAIL,
-                arrMovieDetail : movieDetail.data,
-                arrMovieCredit : movieCredit.data.cast,
-                arrMovieVideo :  movieVideo.data.results
-            }
-            )
-            await dispatch(hideLoadingAction);
-        }
-        catch(error){
-            console.log('error movie detail',error)
-            dispatch(hideLoadingAction);
-        }
-    }
-} */

@@ -5,7 +5,7 @@ export const RenderPostAction = () => {
     return async(dispatch) => {
         try {
             const news = await QLProductApi.fetchNewsAPI()
-            console.log('news', news);
+            /* console.log('news', news); */
             dispatch({
                 type: NEWS_POST,
                 arrNews: news.data.data
