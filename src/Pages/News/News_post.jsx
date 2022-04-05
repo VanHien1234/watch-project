@@ -25,12 +25,12 @@ export default function News_post(props) {
             ></img>
           <div className="content">
             <p>{e.contentSub}</p>
-            <Link to={/news/`${e._id}`} >
+            {/* <Link to={/news/`${e._id}`} > */}
             <button>CONTINUE READING
             <i className="fas fa-arrow-right"></i>
             </button>
 
-            </Link>
+            {/* </Link> */}
             
           </div>
         </div>
