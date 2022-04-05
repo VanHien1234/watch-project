@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsHome.scss";
 
-const News = () => {
+const NewsHome = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -53,4 +53,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default NewsHome;

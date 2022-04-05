@@ -22,6 +22,9 @@ export class ProductApi extends baseService {
     fetchNewsAPI = () => {
         return this.get(`posts`)
     }
+    NewsDetailApi = (id)=>{
+        return this.get(`post/${id}`)
+    }
 }
 
 export const QLProductApi = new ProductApi()
