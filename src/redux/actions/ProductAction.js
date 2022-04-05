@@ -10,7 +10,9 @@ export const RenderHomePageAction = () => {
         try {
             dispatch(displayLoadingAction)
             const result = await QLProductApi.fetchAllMaleProduct()
+
             const logo = await QLProductApi.fetchBrandLogoApi()
+
             const female = await QLProductApi.fetchAllFemaleProduct()
 
             dispatch({

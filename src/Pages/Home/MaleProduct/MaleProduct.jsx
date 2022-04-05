@@ -32,6 +32,9 @@ const MaleProduct = (props) => {
 
     return (
         <div className='container mt-5'>
+             <div className="head-title">
+                <span>ĐỒNG HỒ NAM</span>
+            </div>
             <div className="row">
                 {renderProduct()}
             </div>

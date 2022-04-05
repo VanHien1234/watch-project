@@ -17,7 +17,9 @@ const Brand = (props) => {
 
     return (
         <div className='Brand px-3 text-center' >
-            <h3>Brand</h3>
+            <div className="head-title">
+                <span>THƯƠNG HIỆU</span>
+            </div>
             <div className="row ">
                 {renderBrand()}
             </div>

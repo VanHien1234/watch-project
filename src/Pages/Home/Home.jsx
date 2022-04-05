@@ -3,7 +3,8 @@ import {useSelector,useDispatch} from 'react-redux'
 import { RenderHomePageAction } from 'redux/actions/ProductAction';
 import Brand from './Brand/Brand'
 import MaleProduct from './MaleProduct/MaleProduct';
-import FemaleProduct from './FemaleProduct/FemaleProduct'
+import FemaleProduct from './FemaleProduct/FemaleProduct';
+import NewsHome from './NewsHome/NewsHome'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -11,6 +12,8 @@ export default function Home() {
     dispatch(RenderHomePageAction())
   }, []);
   const { arr_Male_Product } = useSelector(state => state.ProductReducer)
+
+
   const {arr_Female_Product } = useSelector(state => state.ProductReducer)
   const {arrBrandLogo } = useSelector(state => state.ProductReducer)
   const { isLoading } = useSelector(state => state.LoadingReducer);
@@ -25,5 +28,6 @@ export default function Home() {
       </div>
       : ''}
     </>
+
   )
 }

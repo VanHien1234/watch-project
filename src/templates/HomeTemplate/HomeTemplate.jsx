@@ -23,6 +23,7 @@ export const HomeTemplate = (props) => {
 
 
 
+
                 <Footer />
             
 
