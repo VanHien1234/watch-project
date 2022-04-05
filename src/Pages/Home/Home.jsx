@@ -12,12 +12,18 @@ export default function Home() {
   }, []);
   const { arr_Male_Product } = useSelector(state => state.ProductReducer)
   const {arr_Female_Product } = useSelector(state => state.ProductReducer)
+  const {arrBrandLogo } = useSelector(state => state.ProductReducer)
+  const { isLoading } = useSelector(state => state.LoadingReducer);
   return (
-    <div>
-      Home1323
-      <Brand/>
-      <MaleProduct arrProduct ={arr_Male_Product}/>
-      <FemaleProduct arrProduct ={arr_Female_Product}/>
-    </div>
+    <>
+      { !isLoading?
+      <div>
+        <Brand arrLogo={arrBrandLogo}/>
+        <MaleProduct arrProduct ={arr_Male_Product}/>
+        <FemaleProduct arrProduct ={arr_Female_Product}/>
+
+      </div>
+      : ''}
+    </>
   )
 }
