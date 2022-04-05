@@ -10,6 +10,9 @@ export default function News() {
     dispatch(RenderPostAction());
   }, []);
   const { arrPost } = useSelector(state => state.PostReducer);
+
+  /* console.log('11',arrPost); */
+
   return (
     <div className="container">
       <div className="row">

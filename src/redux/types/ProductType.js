@@ -1,2 +1,3 @@
 export const RENDER_HOME = 'RENDER_HOME'
+export const RENDER_LOGO = 'RENDER_LOGO'
 export const FETCH_DETAIL_PRODUCT = 'FETCH_DETAIL_PRODUCT'

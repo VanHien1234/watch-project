@@ -12,14 +12,22 @@ export default function Home() {
     dispatch(RenderHomePageAction())
   }, []);
   const { arr_Male_Product } = useSelector(state => state.ProductReducer)
-  const { arr_Female_Product } = useSelector(state => state.ProductReducer)
-  const { arr_News} = useSelector(state => state.ProductReducer)
+
+
+  const {arr_Female_Product } = useSelector(state => state.ProductReducer)
+  const {arrBrandLogo } = useSelector(state => state.ProductReducer)
+  const { isLoading } = useSelector(state => state.LoadingReducer);
   return (
-    <div>
-      <Brand/>
-      <MaleProduct arrProduct ={arr_Male_Product}/>
-      <FemaleProduct arrProduct={arr_Female_Product} />
-      <NewsHome arr_News={arr_News} />
-    </div>
+    <>
+      { !isLoading?
+      <div>
+        <Brand arrLogo={arrBrandLogo}/>
+        <MaleProduct arrProduct ={arr_Male_Product}/>
+        <FemaleProduct arrProduct ={arr_Female_Product}/>
+
+      </div>
+      : ''}
+    </>
+
   )
 }
