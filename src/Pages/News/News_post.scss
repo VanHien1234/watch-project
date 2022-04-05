@@ -1,0 +1,36 @@
+.border-content {
+    border-left: 1px solid #ededed;
+    border-bottom: 4px solid #ededed;
+    border-right: 1px solid #ededed;
+    margin-top: 16px;
+    .title {
+        padding-left: 15px;
+        padding-bottom: 10px;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .content {
+        padding: 20px 0px 10px 15px;
+        p {
+            font-size: 16px;
+            text-overflow: ellipsis;
+        }
+        button {
+            margin-bottom: 10px;
+            border-color: red;
+            color: red;
+            padding: 2px 10px 2px 10px;
+            i {
+                padding-left: 4px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+        button:hover {
+            background-color: red;
+            color: white;
+        }
+    }
+}

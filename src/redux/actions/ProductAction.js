@@ -10,7 +10,7 @@ export const RenderHomePageAction = () => {
         try {
             const result = await QLProductApi.fetchAllMaleProduct()
 
-            console.log('all male product',result.data.data )
+            console.log('all male product', result.data.data)
 
             const female = await QLProductApi.fetchAllFemaleProduct()
             console.log('female', female.data.data);

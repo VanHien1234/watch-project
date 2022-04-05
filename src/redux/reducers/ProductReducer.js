@@ -7,9 +7,7 @@ const stateDefault = {
     arr_Male_Product: [],
     arrProductDetail: [],
     arr_Female_Product: [],
-
-
-
+    arr_News: [],
 }
 
 export const ProductReducer = (state = stateDefault, action) => {

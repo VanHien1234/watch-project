@@ -7,7 +7,7 @@ export default function Header() {
     <>
       <header id="header">
         <nav className="navbar">
-          <div className="container">
+          <div className="container-fluid">
             <div>
               <form className="d-flex">
                 <input
@@ -20,14 +20,14 @@ export default function Header() {
                   className="btn btn-danger btn-sm font_weight_btn"
                   type="submit"
                 >
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i className="fas fa-search"></i>
                 </button>
               </form>
             </div>
             <div>
-              <a className="navbar-brand navbar__logo" href="#">
+              <Link to="" className="navbar-brand navbar__logo" href="#">
                 WATCH
-              </a>
+              </Link>
             </div>
             <div>
               <button
@@ -174,17 +174,9 @@ export default function Header() {
                 </div>
               </li>
               <li className="nav-item">
-                <div className="dropdown">
-                  <Link to={"/news"}>
-                    <button
-                      className="btn "
-                      type="button"
-                      id="dropdownMenuButton1"
-                    >
-                      TIN TỨC
-                    </button>
-                  </Link>
-                </div>
+                <Link to={"/news"}>
+                  <button className="btn " type="button" id="dropdownMenuButton1">TIN TỨC</button>
+                </Link>
               </li>
             </ul>
           </div>

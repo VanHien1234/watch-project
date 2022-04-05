@@ -29,7 +29,10 @@ export default function FemaleProduct(props) {
         })
     }
   return (
-    <div className='container mt-5'>
+      <div className='container mt-5'>
+           <div className="head-title">
+                <span>ĐỒNG HỒ NỮ</span>
+            </div>
             <div className="row">
                 {renderProduct()}
             </div>
