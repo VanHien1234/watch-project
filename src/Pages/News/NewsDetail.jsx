@@ -22,13 +22,10 @@ export default function NewsDetail(props) {
   const { arrPostDetail } = useSelector(state => state.PostReducer)
   console.log('arrPostDetail',arrPostDetail)
   let e = arrPostDetail
-  const days = e.dateCreate.slice(0, 10);
+  const days = arrPostDetail.dateCreate?.slice(0, 10);
   return (
-    <div className="border-content" >
-          {/* <div dangerouslySetInnerHTML={{
-            __html:`${e.content}`
-          }}>
-          </div> */}
+    <div className="border-content container" >
+         
           <div className="title">
             <h4>{e.title}</h4>
             <p>{`POSTED ON ${days} BY ADMIN`}</p>
@@ -40,7 +37,7 @@ export default function NewsDetail(props) {
           <div className="content">
             <p>{e.contentSub}</p>
           </div>
-          <div className= "img-fix
+          <div className= "img-fix"
             dangerouslySetInnerHTML={{ __html: `${arrPostDetail.content}` }}>
           </div>
         </div>
