@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsHome.scss";
+import { Link } from "react-router-dom";
 
 const NewsHome = () => {
   const [news, setNews] = useState([]);
@@ -28,8 +29,9 @@ const NewsHome = () => {
         <div class="row text-center">
           {news?.map((e, index) => {
             return (
-              <>
+              
                 <div key="index" class="col-sm">
+                  <Link to={`/news/${e._id}`} >
                   <div class="card">
                     <img alt="" src={`https://radiant-stream-23882.herokuapp.com/img/post/${e.logo}`}></img>
                     <div class="card-body ">
@@ -37,8 +39,9 @@ const NewsHome = () => {
                       <p class="card-text ">{e.contentSub}</p>
                     </div>
                   </div>
+                  </Link>
                 </div>
-              </>
+
             );
           })}
         </div>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./News_post.scss";
 
-export default function News_post(props) {
+export default function News_post() {
   const { arrPost } = useSelector((state) => state.PostReducer);
   console.log("arrPost", arrPost);
   const renderPost = () => {

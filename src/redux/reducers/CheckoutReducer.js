@@ -14,7 +14,7 @@ export const CheckoutReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case ADD_CHECKOUT:
             {
-                console.log('11111',clonedState.arrCheckout.length)
+                
                 if(clonedState.arrCheckout.length === 0){
                     let cart ={
                         id:action.arrCheckout._id,
