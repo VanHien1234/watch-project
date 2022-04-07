@@ -53,7 +53,7 @@ export default function Header() {
                 WATCH
               </Link>
             </div>
-            <div>
+            <div className="sign-in">
               <button
                 type="button"
                 className="btn btn-danger btn-sm font_weight_btn"

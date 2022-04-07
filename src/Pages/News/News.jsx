@@ -23,7 +23,8 @@ export default function News() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-9">
+
+        <div className="col-12 col-lg-9">
           <Switch>
             <Route path={`${path}/:id`}>
               <NewsDetail />
@@ -33,8 +34,9 @@ export default function News() {
             </Route>
           </Switch>
         </div>
-        <div className="col-3">
+        <div className="col-lg-3">
           <NewsSlide />
+
         </div>
       </div>
     </div>

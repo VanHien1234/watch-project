@@ -12,7 +12,7 @@ const MaleProduct = (props) => {
 
     const renderProduct = () => {
         return arrProduct.map((e, index) => {
-            return <div className='col-3' key={index}>
+            return <div className='col-lg-3 col-6' key={index}>
                 <Link to={`/product/${e._id}`}>
                 <div className="card" >
                     <img className="card-img-top" src={`${IMG_URL_PRODUCT}/${e.logo}`} alt="Card image" style={{ width: '100%' }} />

@@ -6,6 +6,7 @@ import RandomProduct from './RandomProduct/RandomProduct';
 import { IMG_URL_PRODUCT } from 'API/ApiConfig';
 import { IMG_URL_BRAND } from 'API/ApiConfig';
 import { AddCheckoutAction } from 'redux/actions/CheckoutAction';
+import './Detail.scss'
 
 export default function Detail(props) {
   const dispatch = useDispatch();

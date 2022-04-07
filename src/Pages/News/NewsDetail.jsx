@@ -1,7 +1,9 @@
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RenderDetailPostAction } from 'redux/actions/PostAction';
+import './NewsDetail.scss'
 
 export default function NewsDetail(props) {
   const dispatch = useDispatch();
@@ -11,6 +13,7 @@ export default function NewsDetail(props) {
  
 
   useEffect(() => {
+
     /* console.log('first id', id) */
     dispatch(RenderDetailPostAction(id))
     window.scrollTo(0, 0)
@@ -37,10 +40,11 @@ export default function NewsDetail(props) {
           <div className="content">
             <p>{e.contentSub}</p>
           </div>
-          <div
+          <div className= "img-fix
             dangerouslySetInnerHTML={{ __html: `${arrPostDetail.content}` }}>
           </div>
         </div>
+
   )
 }
 
