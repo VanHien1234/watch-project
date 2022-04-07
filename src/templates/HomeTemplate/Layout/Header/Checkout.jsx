@@ -43,7 +43,7 @@ export default function Checkout(  props ) {
                 <table style={{ width: '100%' }}>
                     <tbody><tr>
 
-                        <th>Qty</th>
+                        <th>IMG</th>
                         <th>Product</th>
                         <th>Price</th>
                         <th>Qty</th>
@@ -53,6 +53,7 @@ export default function Checkout(  props ) {
                         {RenderCart()}
                     </tbody></table>
 
+                    
                     <h3>Total : {totalPrice.reduce((a, b) => a + b, 0)}</h3>
                     <h3>TotalQuan : {totalQuantity.reduce((a, b) => a + b, 0)}</h3>
 

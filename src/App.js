@@ -6,6 +6,7 @@ import Home from 'Pages/Home/Home';
 import News from 'Pages/News/News';
 import Loading from 'LoadingCpn/Loading';
 import NewsDetail from 'Pages/News/NewsDetail';
+import News_post from 'Pages/News/News_post';
 
 export const history = createBrowserHistory();
 
@@ -17,8 +18,8 @@ function App() {
       <Switch>
         <HomeTemplate path="/" exact Component={Home} />
         <HomeTemplate path="/product/:id" exact Component={Detail} />
-        <HomeTemplate path="/news" exact Component={News} />
-        <HomeTemplate path="/news/:id" exact Component={NewsDetail} />
+        <HomeTemplate path="/news" Component={News} />
+        {/* <HomeTemplate path="/news/:id" exact Component={NewsDetail} /> */}
       </Switch>
     </Router>
     </div>
