@@ -3,7 +3,7 @@ import { RENDER_HOME, FETCH_DETAIL_PRODUCT,RENDER_LOGO } from "redux/types/Produ
 
 
 const stateDefault = {
-    arrProduct: [],
+    /* arrProduct: [], */
     arr_Male_Product: [],
     arrProductDetail: [],
     arr_Female_Product: [],

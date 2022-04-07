@@ -24,7 +24,7 @@ export default function Home() {
         <Brand arrLogo={arrBrandLogo}/>
         <MaleProduct arrProduct ={arr_Male_Product}/>
         <FemaleProduct arrProduct ={arr_Female_Product}/>
-
+        <NewsHome/>
       </div>
       : ''}
     </>

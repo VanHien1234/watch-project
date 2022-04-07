@@ -1,8 +1,9 @@
-import { NEWS_POST } from "redux/types/PostType";
+import { NEWS_POST,DETAIL_POST } from "redux/types/PostType";
 
 
 const stateDefault = {
     arrPost: [],
+    arrPostDetail: [],
 }
 
 export const PostReducer = (state = stateDefault, action) => {
@@ -14,6 +15,10 @@ export const PostReducer = (state = stateDefault, action) => {
                 clonedState.arrPost = action.arrNews
                 return clonedState
             }
+        case DETAIL_POST:{
+            clonedState.arrPostDetail = action.arrNews
+            return clonedState
+        }
         default:
             return clonedState
     }

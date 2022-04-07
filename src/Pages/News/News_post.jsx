@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./News_post.scss";
 
-export default function News_post(props) {
+export default function News_post() {
   const { arrPost } = useSelector((state) => state.PostReducer);
   console.log("arrPost", arrPost);
   const renderPost = () => {
@@ -25,7 +25,7 @@ export default function News_post(props) {
             ></img>
           <div className="content">
             <p>{e.contentSub}</p>
-            <Link to={/news/`${e._id}`} >
+            <Link to={`/news/${e._id}`} >
             <button>CONTINUE READING
             <i className="fas fa-arrow-right"></i>
             </button>

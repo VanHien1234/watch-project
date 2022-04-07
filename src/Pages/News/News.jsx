@@ -2,16 +2,18 @@ import React, { useEffect } from "react";
 import { RenderPostAction } from "redux/actions/PostAction";
 import News_post from "./News_post";
 import News_slide from "./News_slide";
+import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 
 export default function News() {
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(RenderPostAction());
   }, []);
   const { arrPost } = useSelector(state => state.PostReducer);
 
-  /* console.log('11',arrPost); */
+  
 
   return (
     <div className="container">
@@ -23,7 +25,6 @@ export default function News() {
           <News_slide/>
         </div>
       </div>
-      
     </div>
   );
 }
