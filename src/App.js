@@ -18,8 +18,8 @@ function App() {
       <Switch>
         <HomeTemplate path="/" exact Component={Home} />
         <HomeTemplate path="/product/:id" exact Component={Detail} />
-        <HomeTemplate path="/news" exact Component={News} />
-        <HomeTemplate path="/news/:id" exact Component={NewsDetail} />
+        <HomeTemplate path="/news" Component={News} />
+        {/* <HomeTemplate path="/news/:id" exact Component={NewsDetail} /> */}
       </Switch>
     </Router>
     </div>
