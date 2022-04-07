@@ -1,0 +1,2 @@
+export const ADD_CHECKOUT = 'ADD_CHECKOUT';
+export const REMOVE_CHECKOUT = 'REMOVE_CHECKOUT';

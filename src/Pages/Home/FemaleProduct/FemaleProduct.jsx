@@ -5,13 +5,13 @@ import { IMG_URL_PRODUCT } from 'API/ApiConfig';
 
 export default function FemaleProduct(props) {
   const { arrProduct } = props;
-  console.log('cpn female', arrProduct);
+ /*  console.log('cpn female', arrProduct); */
   function currencyFormat(num) {
         return  num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'
     }
   const renderProduct = () => {
         return arrProduct.map((e, index) => {
-            return <div className='col-3' key={index}>
+            return <div className='col-lg-3 col-6' key={index}>
                 <Link to={`/product/${e._id}`}>
                 <div className="card" >
                     <img className="card-img-top" src={`${IMG_URL_PRODUCT}/${e.logo}`} alt="Card image" style={{ width: '100%' }} />

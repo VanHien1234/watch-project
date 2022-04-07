@@ -1,8 +1,32 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./Header.scss";
+import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
+import Checkout from "./Checkout";
+import Popup from "reactjs-popup";
 
 export default function Header() {
+
+  const [number, setNumber] = useState(0)
+
+  /* const callbackFunction = (childData) => {
+    setNumber(childData)
+  } */
+  let totalQuantity = []
+  const { arrCheckout } = useSelector(state => state.CheckoutReducer)
+
+  useEffect(() => {
+    arrCheckout?.map((e)=>{
+      {totalQuantity.push(e.quantity)}
+    })
+    let t = totalQuantity.reduce((a, b) => a + b, 0)
+    setNumber(t)
+  }, arrCheckout.quantity);
+
+
+
+
+
   return (
     <>
       <header id="header">
@@ -29,7 +53,7 @@ export default function Header() {
                 WATCH
               </Link>
             </div>
-            <div>
+            <div className="sign-in">
               <button
                 type="button"
                 className="btn btn-danger btn-sm font_weight_btn"
@@ -37,15 +61,22 @@ export default function Header() {
                 ĐĂNG NHẬP
               </button>
               <span>|</span>
-              <button
+              <Popup modal trigger={<button
                 type="button"
-                className="btn btn-danger btn-sm font_weight_btn"
-              >
-                GIỎ HÀNG/0 SẢN PHẨM
-              </button>
+                className="btn btn-danger btn-sm font_weight_btn">
+                GIỎ HÀNG/ {number} SẢN PHẨM
+              </button>}>
+                {close => <Checkout /* parentCallback={callbackFunction}  */close={close} />}
+              </Popup>
+
+
+
+
             </div>
           </div>
         </nav>
+
+
 
         <div className="nav-bg">
           <div className="container">

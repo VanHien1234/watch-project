@@ -63,3 +63,9 @@
         font-weight: 200;
     }
 }
+
+@media (max-width: 768px) {
+    .card {
+        height: 300px;
+    }
+}

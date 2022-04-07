@@ -10,13 +10,16 @@ export default function News() {
     dispatch(RenderPostAction());
   }, []);
   const { arrPost } = useSelector(state => state.PostReducer);
+
+  /* console.log('11',arrPost); */
+
   return (
     <div className="container">
       <div className="row">
-        <div className="col-9">
+        <div className="col-12 col-lg-9">
           <News_post arrPost={arrPost} />
         </div>
-        <div className="col-3">
+        <div className="col-lg-3">
           <News_slide/>
         </div>
       </div>
