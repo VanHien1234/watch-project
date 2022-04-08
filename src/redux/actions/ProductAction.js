@@ -1,19 +1,20 @@
 import { QLProductApi } from "API/ProductApi";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
-import { RENDER_HOME, FETCH_DETAIL_PRODUCT,RENDER_LOGO } from 'redux/types/ProductType'
+import { RENDER_HOME, FETCH_DETAIL_PRODUCT,CATEGORY_PRODUCT } from 'redux/types/ProductType'
 
 
 
-export const RenderHomePageAction = () => {
-
+export const RenderHomePageAction = (nam,nu) => {
+    /* console.log('nam',nam)
+    console.log('nu',nu) */
     return async(dispatch) => {
         try {
             dispatch(displayLoadingAction)
-            const result = await QLProductApi.fetchAllMaleProduct()
+            const result = await QLProductApi.fetchHomeProduct(nam)
 
             const logo = await QLProductApi.fetchBrandLogoApi()
 
-            const female = await QLProductApi.fetchAllFemaleProduct()
+            const female = await QLProductApi.fetchHomeProduct(nu)
 
             dispatch({
                 type: RENDER_HOME,
@@ -47,6 +48,28 @@ export const GetProductDetailAction = (id) => {
             await dispatch(hideLoadingAction);
         } catch (error) {
             console.log('error detail product', error)
+            dispatch(hideLoadingAction);
+
+        }
+    }
+}
+export const CategoryProductAction = (type,brand)=>{
+    console.log('type',type)
+    console.log('brand',brand)
+    return async(dispatch)=>{
+        try {
+            dispatch(displayLoadingAction)
+            const result = await QLProductApi.CategoryApi(type,brand)
+            console.log('category', result)
+
+            dispatch({
+                type: CATEGORY_PRODUCT,
+                arrCategory:result.data.data
+            })
+            await dispatch(hideLoadingAction);
+        }
+        catch (error){
+            console.log('error category product', error)
             dispatch(hideLoadingAction);
 
         }

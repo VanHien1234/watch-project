@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsHome.scss";
-import { Link } from "react-router-dom";
+import { Link,useRouteMatch } from "react-router-dom";
 
 const NewsHome = () => {
   const [news, setNews] = useState([]);
+  const [callPostApi,setCallPostApi]= useState(true)
+  let { url } = useRouteMatch();
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let result = await axios.get(
-          "https://radiant-stream-23882.herokuapp.com/api/v1/posts"
-        );
-        console.log("22", result.data.data);
-        setNews(result.data.data);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-    fetchData();
-  }, []);
+
+      const fetchData = async () => {
+        if(callPostApi){
+          try {
+            let result = await axios.get(
+              "https://radiant-stream-23882.herokuapp.com/api/v1/posts"
+            );
+
+            setNews(result.data.data);
+          } catch (error) {
+            console.log("error", error);
+          }
+
+        }
+      };
+      fetchData();
+    return () => {
+      setCallPostApi(false)
+      
+  }
+  }, [url]);
 
   const renderNews = () => {
     return (
@@ -26,17 +37,17 @@ const NewsHome = () => {
         <div className="head-title">
           <span>BÀI VIẾT MỚI</span>
         </div>
-        <div class="row text-center">
+        <div className="row text-center">
           {news?.map((e, index) => {
             return (
               
-                <div key="index" class="col-sm">
+                <div key={index} className="col-sm">
                   <Link to={`/news/${e._id}`} >
-                  <div class="card">
+                  <div className="card">
                     <img alt="" src={`https://radiant-stream-23882.herokuapp.com/img/post/${e.logo}`}></img>
-                    <div class="card-body ">
-                      <h5 class="card-title ">{e.title}</h5>
-                      <p class="card-text ">{e.contentSub}</p>
+                    <div className="card-body ">
+                      <h5 className="card-title ">{e.title}</h5>
+                      <p className="card-text ">{e.contentSub}</p>
                     </div>
                   </div>
                   </Link>

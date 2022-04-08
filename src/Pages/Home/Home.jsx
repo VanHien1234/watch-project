@@ -8,9 +8,12 @@ import NewsHome from './NewsHome/NewsHome'
 
 export default function Home() {
   const dispatch = useDispatch()
+  let nam = "nam";
+  let nu = "nu";
   useEffect(() => {
-    dispatch(RenderHomePageAction())
-  }, []);
+
+    dispatch(RenderHomePageAction(nam,nu))
+  }, [dispatch]);
   const { arr_Male_Product } = useSelector(state => state.ProductReducer)
 
 

@@ -7,12 +7,10 @@ export class ProductApi extends baseService {
     }
     //brand LOGO end
 
-    fetchAllFemaleProduct = () => {
-        return this.get(`product?type=nu&brand=6`)
+    fetchHomeProduct = (type) => {
+        return this.get(`product?type=${type}&brand=6`)
     }
-    fetchAllMaleProduct = () => {
-        return this.get(`product?type=nam&brand=6`)
-    }
+    
     fetchDetailProductApi = (id) => {
         return this.get(`product/${id}`)
     }
@@ -24,6 +22,9 @@ export class ProductApi extends baseService {
     }
     NewsDetailApi = (id)=>{
         return this.get(`post/${id}`)
+    }
+    CategoryApi=(type,brand)=>{
+        return this.get(`product?${type}brand=${brand}`)
     }
 }
 

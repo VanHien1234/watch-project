@@ -1,15 +1,15 @@
-import { RENDER_HOME, FETCH_DETAIL_PRODUCT,RENDER_LOGO } from "redux/types/ProductType"
+import { RENDER_HOME, FETCH_DETAIL_PRODUCT,CATEGORY_PRODUCT } from "redux/types/ProductType"
 
 
 
 const stateDefault = {
-    /* arrProduct: [], */
     arr_Male_Product: [],
     arrProductDetail: [],
     arr_Female_Product: [],
     arr_News: [],
     arrRandomProduct:[],
     arrBrandLogo:[],
+    arrCategory:[],
 
 }
 
@@ -29,6 +29,11 @@ export const ProductReducer = (state = stateDefault, action) => {
                 clonedState.arrProductDetail = action.arrProductDetail
                 clonedState.arrRandomProduct = action.arrRandom
                 clonedState.arrBrandLogo =action.arrBrandLogo
+                return clonedState
+            }
+        case CATEGORY_PRODUCT:
+            {
+                clonedState.arrCategory = action.arrCategory
                 return clonedState
             }
 

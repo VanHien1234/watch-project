@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
@@ -16,12 +16,13 @@ export default function Header() {
   const { arrCheckout } = useSelector(state => state.CheckoutReducer)
 
   useEffect(() => {
-    arrCheckout?.map((e)=>{
-      {totalQuantity.push(e.quantity)}
+    arrCheckout?.map((e) => {
+      { totalQuantity.push(e.quantity) }
     })
     let t = totalQuantity.reduce((a, b) => a + b, 0)
     setNumber(t)
   }, arrCheckout.quantity);
+  
 
 
 
@@ -49,7 +50,7 @@ export default function Header() {
               </form>
             </div>
             <div>
-              <Link to="" className="navbar-brand navbar__logo" href="#">
+              <Link to="/" className="navbar-brand navbar__logo" >
                 WATCH
               </Link>
             </div>
@@ -66,7 +67,7 @@ export default function Header() {
                 className="btn btn-danger btn-sm font_weight_btn">
                 GIỎ HÀNG/ {number} SẢN PHẨM
               </button>}>
-                {close => <Checkout /* parentCallback={callbackFunction}  */close={close} />}
+                {close => <Checkout /* parentCallback={callbackFunction}  */ close={close} />}
               </Popup>
 
 
@@ -95,14 +96,21 @@ export default function Header() {
                     aria-labelledby="dropdownMenuButton1"
                   >
                     <li>
-                      <a className="dropdown-item" href="#">
-                        CASIO
-                      </a>
+                      <Link to={`/category/casio`}>
+                        <a className="dropdown-item">
+                          CASIO
+                        </a>
+                      </Link>
+
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <Link to={`/category/orient`}>
+                      <a className="dropdown-item">
                         ORIENT
                       </a>
+
+                      </Link>
+                      
                     </li>
                     <li>
                       <a className="dropdown-item" href="#">

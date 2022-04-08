@@ -41,8 +41,10 @@ nav {
 .nav-item {
     .dropdown-menu {
         padding: 0;
+        /* display: block; */
     }
     .dropdown-item {
+        
         padding: 15px;
         font-weight: 500;
         color: #777777

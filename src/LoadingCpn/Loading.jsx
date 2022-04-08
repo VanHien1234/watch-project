@@ -5,7 +5,7 @@ import './Loading.css'
 export default function Loading(props) {
 
     const { isLoading } = useSelector(state => state.LoadingReducer);
-    console.log('loading', isLoading)
+    /* console.log('loading', isLoading) */
 
 
     return (

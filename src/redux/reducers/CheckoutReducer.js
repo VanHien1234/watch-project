@@ -10,7 +10,7 @@ const stateDefault = {
 export const CheckoutReducer = (state = stateDefault, action) => {
 
     let clonedState = { ...state }
-    console.log('state1', clonedState)
+    
     switch (action.type) {
         case ADD_CHECKOUT:
             {

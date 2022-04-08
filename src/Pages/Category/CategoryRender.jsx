@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { CategoryProductAction } from 'redux/actions/ProductAction';
+import {
+    Link, useRouteMatch
+} from "react-router-dom";
 import { IMG_URL_PRODUCT } from 'API/ApiConfig';
-import '../Card_Product.scss'
-import { Link } from 'react-router-dom';
 
-const MaleProduct = (props) => {
-    const { arrProduct } = props
-    /* console.log('arrProduct',arrProduct) */
+export default function CategoryRender(props) {
+    const { urlTitle } = props
+    let { url } = useRouteMatch();
+    console.log('urlTitle', urlTitle)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(CategoryProductAction(urlTitle.type, urlTitle.brand))
+    }, [url]);
+
+    const { arrCategory } = useSelector(state => state.ProductReducer)
+    console.log('arrCategory', arrCategory)
+
+    const { isLoading } = useSelector(state => state.LoadingReducer);
+
+    console.log('isLoading Category',isLoading)
+
     function currencyFormat(num) {
         return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'
     }
-
     const renderProduct = () => {
-        return arrProduct.map((e, index) => {
+        return arrCategory?.map((e, index) => {
             return <div className='col-lg-3 col-6' key={index}>
                 <Link to={`/product/${e._id}`}>
                     <div className="card" >
@@ -31,24 +46,16 @@ const MaleProduct = (props) => {
     }
 
     return (
-        <div className='container mt-5'>
-            <div className="head-title">
-                <span>ĐỒNG HỒ NAM</span>
-            </div>
+        <>{ !isLoading?
+        <div className='container'>
+            <h3 className='text-center mt-3 mb-3'>
+                {urlTitle.title}
+            </h3>
             <div className="row">
                 {renderProduct()}
             </div>
-
-            <div className="Home__button text-center mt-5 pb-3">
-                <Link to={'/'}>
-                    <button className='btn--page btn--all'>View All</button>
-
-                </Link>
-
-            </div>
-
-        </div>
-    );
+        </div>: ''}
+        </>
+        
+    )
 }
-
-export default MaleProduct;
